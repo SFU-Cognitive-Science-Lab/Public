@@ -18,7 +18,7 @@ This readme will explain the coding standards, and internal revision labels we s
 * Commits should try to follow best practices:
 	* https://gist.github.com/adeekshith/cd4c95a064977cdc6c50
 * Documentation should be written in Markdown (pretty), reStructuredText (pretty + programmatic + complicated), or Latex (unusual for basic documentation but obviously the most powerful)
-	* https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
+	* https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet  
 	* https://github.com/jgm/pandoc - convert between formats  
 	* https://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.html - learn reStructuredText  
 	
