@@ -46,8 +46,9 @@ This readme will explain the coding standards, and internal revision labels we s
 
 Goal: Move everything from lab SVN to Git.  
 
-
 ### Repository management  
+
+helpful hint: submodule sym links can be fulfilled by running: git submodule update --init  
 
 More information regarding permissions for an Organization Repo (distinct from a normal user created repo):
 https://help.github.com/articles/repository-permission-levels-for-an-organization/  
