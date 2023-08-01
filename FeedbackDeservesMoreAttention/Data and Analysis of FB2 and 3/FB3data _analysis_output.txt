@@ -1,0 +1,117 @@
+[1] "2023-08-01 15:32:30 PDT"
+[1] "FB3data"
+
+
+ [1] 3266 4242 4264 4266 4272 4278 5206 5256 5266 5290
+# A tibble: 12 × 4
+# Groups:   Condition [2]
+   Condition   TrialBin mean_binAcc num_subjects
+   <fct>          <int>       <dbl>        <int>
+ 1 Condition 1        1       0.300           47
+ 2 Condition 1        2       0.416           47
+ 3 Condition 1        3       0.514           47
+ 4 Condition 1        4       0.613           47
+ 5 Condition 1        5       0.662           47
+ 6 Condition 1        6       0.699           47
+ 7 Condition 9        1       0.433           42
+ 8 Condition 9        2       0.641           42
+ 9 Condition 9        3       0.714           42
+10 Condition 9        4       0.743           42
+11 Condition 9        5       0.757           42
+12 Condition 9        6       0.755           42
+Linear mixed model fit by REML ['lmerMod']
+Formula: binAcc ~ TrialBin + (1 | Subject)
+   Data: ACC.data
+
+REML criterion at convergence: -179.1
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-2.9093 -0.6057  0.1109  0.7103  2.1801 
+
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ Subject  (Intercept) 0.06304  0.2511  
+ Residual             0.02614  0.1617  
+Number of obs: 566, groups:  Subject, 99
+
+Fixed effects:
+            Estimate Std. Error t value
+(Intercept) 0.352726   0.029501   11.96
+TrialBin    0.068851   0.004034   17.07
+
+Correlation of Fixed Effects:
+         (Intr)
+TrialBin -0.461
+Linear mixed model fit by REML ['lmerMod']
+Formula: binAcc ~ TrialBin + Condition + (1 | Subject)
+   Data: ACC.data
+
+REML criterion at convergence: -179.9
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-2.9399 -0.6144  0.1050  0.7028  2.1212 
+
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ Subject  (Intercept) 0.06033  0.2456  
+ Residual             0.02614  0.1617  
+Number of obs: 566, groups:  Subject, 99
+
+Fixed effects:
+                     Estimate Std. Error t value
+(Intercept)          0.292374   0.039696   7.365
+TrialBin             0.069031   0.004035  17.108
+ConditionCondition 9 0.114511   0.051366   2.229
+
+Correlation of Fixed Effects:
+            (Intr) TrilBn
+TrialBin    -0.356       
+CndtnCndtn9 -0.682  0.019
+Linear mixed model fit by REML ['lmerMod']
+Formula: binAcc ~ TrialBin + Condition + TrialBin * Condition + (1 | Subject)
+   Data: ACC.data
+
+REML criterion at convergence: -181.5
+
+Scaled residuals: 
+     Min       1Q   Median       3Q      Max 
+-2.76569 -0.59324  0.05718  0.66873  2.15718 
+
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ Subject  (Intercept) 0.06075  0.2465  
+ Residual             0.02564  0.1601  
+Number of obs: 566, groups:  Subject, 99
+
+Fixed effects:
+                               Estimate Std. Error t value
+(Intercept)                    0.250296   0.042018   5.957
+TrialBin                       0.081054   0.005584  14.516
+ConditionCondition 9           0.197679   0.058131   3.401
+TrialBin:ConditionCondition 9 -0.024669   0.007996  -3.085
+
+Correlation of Fixed Effects:
+            (Intr) TrilBn CndtC9
+TrialBin    -0.465              
+CndtnCndtn9 -0.723  0.336       
+TrlBn:CndC9  0.325 -0.698 -0.464
+Data: ACC.data
+Models:
+ACC.data.fit: binAcc ~ TrialBin + (1 | Subject)
+ACC.data.fit.condition: binAcc ~ TrialBin + Condition + (1 | Subject)
+                       npar     AIC     BIC logLik deviance  Chisq Df Pr(>Chisq)  
+ACC.data.fit              4 -185.72 -168.37 96.861  -193.72                       
+ACC.data.fit.condition    5 -188.66 -166.97 99.333  -198.66 4.9434  1    0.02619 *
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+Data: ACC.data
+Models:
+ACC.data.fit.condition: binAcc ~ TrialBin + Condition + (1 | Subject)
+ACC.data.fit.condition.interactaction: binAcc ~ TrialBin + Condition + TrialBin * Condition + (1 | Subject)
+                                      npar     AIC     BIC  logLik deviance  Chisq Df Pr(>Chisq)   
+ACC.data.fit.condition                   5 -188.66 -166.97  99.333  -198.66                        
+ACC.data.fit.condition.interactaction    6 -196.11 -170.08 104.054  -208.11 9.4423  1    0.00212 **
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
