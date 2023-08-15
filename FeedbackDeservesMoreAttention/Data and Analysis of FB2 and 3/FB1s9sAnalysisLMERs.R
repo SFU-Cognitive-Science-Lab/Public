@@ -4,7 +4,7 @@
 #
 # Author: Mark Blair (though I copied extensively from ExNovo 2 Analyses script by Justin O)
 # Date Created: 4/19/2023
-# Last Edit: Aug 1st 2023
+# Last Edit: Aug 14th 2023
 #
 # Input: FB2data.txt (or FB3data.txt) in the vault exnovo folder
 #
@@ -73,12 +73,12 @@ data$TrialBin <- cut(data$TrialID, breaks = seq(0, max(data$TrialID) + trials_pe
 ACC.data <- data %>%
   group_by(Subject, Condition, TrialBin) %>%
   summarise(binAcc = mean(TrialAccuracy, na.rm = TRUE),
-            nTrials = n())
+            nTrials = n(), .groups = 'drop')
 
 # Get the list of Subjects with a sum of nTrials not equal to 144
 subject_totals <- ACC.data %>%
   group_by(Subject) %>%
-  summarise(totalTrials = sum(nTrials))
+  summarise(totalTrials = sum(nTrials), .groups = 'drop')
 
 subjects_not_144 <- subject_totals %>%
   filter(totalTrials != 144) %>%
@@ -93,7 +93,7 @@ filtered_ACC_data <- ACC.data %>%
 avg_binAcc <- filtered_ACC_data %>%
   group_by(Condition, TrialBin) %>%
   summarise(mean_binAcc = mean(binAcc),
-            num_subjects = n())
+            num_subjects = n(), .groups = 'drop')
 print(avg_binAcc)
 
 # Calculate the SEM for mean_binAcc
@@ -183,3 +183,4 @@ qqline(resid(ACC.data.fit.condition.interactaction))
 # slight stray from normality, but lmers are robust to this
 
 sink()
+closeAllConnections()
