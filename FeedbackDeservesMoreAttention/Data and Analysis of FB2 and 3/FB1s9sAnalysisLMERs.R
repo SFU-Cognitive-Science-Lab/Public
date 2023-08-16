@@ -11,7 +11,8 @@
 # Output: Statistical tests and assumption checking models for FB 1s9s
 # 
 ## Review and Verrify: 
-
+Reviewed: Kat [Aug-10-2023]
+Verified: Tyrus [Aug-16-2023]
 
 ## PREAMBLE ----
 
@@ -101,7 +102,8 @@ conf_intervals <- filtered_ACC_data %>%
   group_by(Condition, TrialBin) %>%
   summarise(
     mean_binAcc = mean(binAcc),
-    sem_binAcc = sd(binAcc) / sqrt(n())
+    sem_binAcc = sd(binAcc) / sqrt(n()),
+    .groups = 'drop'
     )
 
 # Convert Condition to a factor with specific labels
