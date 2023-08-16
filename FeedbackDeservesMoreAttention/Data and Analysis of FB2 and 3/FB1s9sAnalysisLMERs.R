@@ -11,8 +11,8 @@
 # Output: Statistical tests and assumption checking models for FB 1s9s
 # 
 ## Review and Verrify: 
-Reviewed: Kat [Aug-10-2023]
-Verified: Tyrus [Aug-16-2023]
+# Reviewed: Kat [Aug-10-2023]
+# Verified: Tyrus [Aug-16-2023]
 
 ## PREAMBLE ----
 
